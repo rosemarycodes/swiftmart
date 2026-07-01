@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwiftMart - Fast. Reliable. Global.</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div>
+            <h1>⚡<span>Swift</span>Mart</h1>
+            <p class="tagline">Fast. Reliable. Global.</p>
+        </div>
+        
+        <div class="header-controls">
+            <!-- Currency Switcher -->
+            <select id="currencySelector">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="NGN">🇳🇬 NGN</option>
+                <option value="KES">🇰🇪 KES</option>
+                <option value="ZAR">🇿🇦 ZAR</option>
+            </select>
+            
+            <!-- Search Bar -->
+            <input type="text" id="searchBar" placeholder="Search products..." />
+        </div>
+    </header>
+
+    <!-- Category Filters -->
+    <div class="filters">
+        <button class="filter-btn active" data-category="all">⚡ All</button>
+        <button class="filter-btn" data-category="electronics">📱 Electronics</button>
+        <button class="filter-btn" data-category="fashion">👗 Fashion</button>
+        <button class="filter-btn" data-category="home">🏠 Home & Living</button>
+        <button class="filter-btn" data-category="beauty">💄 Beauty</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="brand">⚡<span>Swift</span>Mart — Fast. Reliable. Global.</p>
+        <p>📞 Order via WhatsApp: <a href="https://wa.me/2348012345678">Chat Now</a></p>
+        <p>&copy; 2026 SwiftMart. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
