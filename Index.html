@@ -5,48 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SwiftMart - Fast. Reliable. Global.</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div>
-            <h1>⚡<span>Swift</span>Mart</h1>
-            <p class="tagline">Fast. Reliable. Global.</p>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span class="brand-name">Swift<span>Mart</span></span>
+            </div>
+            <div class="nav-controls">
+                <select id="currencySelector" class="currency-select">
+                    <option value="USD">🇺🇸 USD</option>
+                    <option value="EUR">🇪🇺 EUR</option>
+                    <option value="GBP">🇬🇧 GBP</option>
+                    <option value="NGN">🇳🇬 NGN</option>
+                    <option value="KES">🇰🇪 KES</option>
+                    <option value="ZAR">🇿🇦 ZAR</option>
+                </select>
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchBar" placeholder="Search products..." />
+                </div>
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge">0</span>
+                </button>
+            </div>
         </div>
-        
-        <div class="header-controls">
-            <!-- Currency Switcher -->
-            <select id="currencySelector">
-                <option value="USD">🇺🇸 USD</option>
-                <option value="EUR">🇪🇺 EUR</option>
-                <option value="GBP">🇬🇧 GBP</option>
-                <option value="NGN">🇳🇬 NGN</option>
-                <option value="KES">🇰🇪 KES</option>
-                <option value="ZAR">🇿🇦 ZAR</option>
-            </select>
-            
-            <!-- Search Bar -->
-            <input type="text" id="searchBar" placeholder="Search products..." />
-        </div>
-    </header>
+    </nav>
 
-    <!-- Category Filters -->
-    <div class="filters">
-        <button class="filter-btn active" data-category="all">⚡ All</button>
-        <button class="filter-btn" data-category="electronics">📱 Electronics</button>
-        <button class="filter-btn" data-category="fashion">👗 Fashion</button>
-        <button class="filter-btn" data-category="home">🏠 Home & Living</button>
-        <button class="filter-btn" data-category="beauty">💄 Beauty</button>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ World-Class Shopping</div>
+            <h1>Discover Amazing <br /><span>Products</span> Worldwide</h1>
+            <p>Shop from our curated collection of premium items — delivered fast, anywhere in the world.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Explore Now <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">12k+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=500&fit=crop" alt="Shopping" />
+            <div class="floating-badge badge-1">
+                <i class="fas fa-rocket"></i> Free Shipping
+            </div>
+            <div class="floating-badge badge-2">
+                <i class="fas fa-shield-alt"></i> Secure Checkout
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST BADGES ===== -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <i class="fas fa-truck"></i>
+            <span>Free Worldwide Shipping</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-lock"></i>
+            <span>100% Secure Payments</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-undo"></i>
+            <span>30-Day Returns</span>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Customer Support</span>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORY FILTERS ===== -->
+    <div class="filters-container">
+        <h2 class="section-title">Browse <span>Categories</span></h2>
+        <div class="filters">
+            <button class="filter-btn active" data-category="all">
+                <i class="fas fa-th"></i> All
+            </button>
+            <button class="filter-btn" data-category="electronics">
+                <i class="fas fa-laptop"></i> Electronics
+            </button>
+            <button class="filter-btn" data-category="fashion">
+                <i class="fas fa-tshirt"></i> Fashion
+            </button>
+            <button class="filter-btn" data-category="home">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button class="filter-btn" data-category="beauty">
+                <i class="fas fa-spa"></i> Beauty
+            </button>
+        </div>
     </div>
 
-    <!-- Product Grid -->
-    <div class="product-grid" id="productGrid"></div>
+    <!-- ===== PRODUCT GRID ===== -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">Featured <span>Products</span></h2>
+        <div class="product-grid" id="productGrid"></div>
+    </section>
 
-    <!-- Footer -->
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our <span>Customers Say</span></h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"SwiftMart made shopping so easy! My order arrived in just 3 days."</p>
+                <div class="customer">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" />
+                    <div>
+                        <strong>Sarah Johnson</strong>
+                        <span>New York, USA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"The quality of products is amazing. Highly recommend!"</p>
+                <div class="customer">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" />
+                    <div>
+                        <strong>Michael Okafor</strong>
+                        <span>Lagos, Nigeria</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Finally a global store that delivers to my country. Love it!"</p>
+                <div class="customer">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" />
+                    <div>
+                        <strong>Emma Chen</strong>
+                        <span>Singapore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the <span>SwiftMart</span> Family</h2>
+            <p>Subscribe for exclusive deals and updates</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
-        <p class="brand">⚡<span>Swift</span>Mart — Fast. Reliable. Global.</p>
-        <p>📞 Order via WhatsApp: <a href="https://wa.me/2348012345678">Chat Now</a></p>
-        <p>&copy; 2026 SwiftMart. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>⚡ Swift<span>Mart</span></h3>
+                <p>Fast. Reliable. Global.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQs</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <a href="https://wa.me/2348012345678"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#"><i class="fas fa-envelope"></i> info@swiftmart.com</a>
+                <p><i class="fas fa-map-marker-alt"></i> Global Headquarters</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SwiftMart. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
