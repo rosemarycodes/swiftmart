@@ -1,21 +1,21 @@
 // ============ PRODUCT DATABASE (Base prices in USD) ============
 const products = [
     // Electronics
-    { id: 1, name: "Wireless Headphones", price: 49, category: "electronics", image: "https://via.placeholder.com/300x200?text=Headphones" },
-    { id: 2, name: "Smart Watch", price: 89, category: "electronics", image: "https://via.placeholder.com/300x200?text=Smart+Watch" },
-    { id: 3, name: "Bluetooth Speaker", price: 35, category: "electronics", image: "https://via.placeholder.com/300x200?text=Speaker" },
+    { id: 1, name: "Wireless Headphones", price: 49, category: "electronics", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop" },
+    { id: 2, name: "Smart Watch", price: 89, category: "electronics", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop" },
+    { id: 3, name: "Bluetooth Speaker", price: 35, category: "electronics", image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=200&fit=crop" },
     // Fashion
-    { id: 4, name: "Men's T-Shirt", price: 25, category: "fashion", image: "https://via.placeholder.com/300x200?text=T-Shirt" },
-    { id: 5, name: "Women's Dress", price: 45, category: "fashion", image: "https://via.placeholder.com/300x200?text=Dress" },
-    { id: 6, name: "Sneakers", price: 65, category: "fashion", image: "https://via.placeholder.com/300x200?text=Sneakers" },
+    { id: 4, name: "Men's T-Shirt", price: 25, category: "fashion", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop" },
+    { id: 5, name: "Women's Dress", price: 45, category: "fashion", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=300&h=200&fit=crop" },
+    { id: 6, name: "Sneakers", price: 65, category: "fashion", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=200&fit=crop" },
     // Home & Living
-    { id: 7, name: "Floor Lamp", price: 55, category: "home", image: "https://via.placeholder.com/300x200?text=Floor+Lamp" },
-    { id: 8, name: "Coffee Table", price: 120, category: "home", image: "https://via.placeholder.com/300x200?text=Coffee+Table" },
-    { id: 9, name: "Decorative Pillow", price: 20, category: "home", image: "https://via.placeholder.com/300x200?text=Pillow" },
+    { id: 7, name: "Floor Lamp", price: 55, category: "home", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=200&fit=crop" },
+    { id: 8, name: "Coffee Table", price: 120, category: "home", image: "https://images.unsplash.com/photo-1532372576444-dda954194ad0?w=300&h=200&fit=crop" },
+    { id: 9, name: "Decorative Pillow", price: 20, category: "home", image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e6?w=300&h=200&fit=crop" },
     // Beauty
-    { id: 10, name: "Skincare Set", price: 40, category: "beauty", image: "https://via.placeholder.com/300x200?text=Skincare" },
-    { id: 11, name: "Perfume", price: 60, category: "beauty", image: "https://via.placeholder.com/300x200?text=Perfume" },
-    { id: 12, name: "Makeup Kit", price: 35, category: "beauty", image: "https://via.placeholder.com/300x200?text=Makeup" },
+    { id: 10, name: "Skincare Set", price: 40, category: "beauty", image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=200&fit=crop" },
+    { id: 11, name: "Perfume", price: 60, category: "beauty", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=300&h=200&fit=crop" },
+    { id: 12, name: "Makeup Kit", price: 35, category: "beauty", image: "https://images.unsplash.com/photo-1596462502278-27bf7c1d7739?w=300&h=200&fit=crop" },
 ];
 
 // ============ CURRENCY CONVERSION RATES ============
@@ -63,19 +63,23 @@ function renderProducts(category = "all", search = "") {
         return;
     }
 
-    grid.innerHTML = filtered.map(p => {
+    grid.innerHTML = filtered.map((p, index) => {
         const rate = exchangeRates[currentCurrency];
         const convertedPrice = p.price * rate;
         const symbol = currencySymbols[currentCurrency];
         const formattedPrice = convertedPrice.toFixed(2);
         
+        // Hot badge for first 3 products
+        const badge = index < 3 ? `<span class="badge">🔥 Hot</span>` : '';
+        
         return `
             <div class="product-card">
-                <img src="${p.image}" alt="${p.name}" />
+                ${badge}
+                <img src="${p.image}" alt="${p.name}" loading="lazy" />
                 <h3>${p.name}</h3>
                 <p class="price">${symbol}${formattedPrice}</p>
                 <button onclick="orderProduct('${p.name}', '${symbol}${formattedPrice}')">
-                    Order via WhatsApp
+                    <i class="fab fa-whatsapp"></i> Order Now
                 </button>
             </div>
         `;
@@ -96,19 +100,4 @@ currencySelector.addEventListener("change", (e) => {
 });
 
 // ============ CATEGORY FILTERS ============
-document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        currentCategory = btn.dataset.category;
-        renderProducts(currentCategory, searchBar.value);
-    });
-});
-
-// ============ SEARCH FUNCTIONALITY ============
-searchBar.addEventListener("input", (e) => {
-    renderProducts(currentCategory, e.target.value);
-});
-
-// ============ INITIAL RENDER ============
-renderProducts();
+document.querySelectorAll
