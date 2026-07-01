@@ -5,16 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SwiftMart - Fast. Reliable. Global.</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+    <!-- ===== MOBILE SIDEBAR OVERLAY ===== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ===== MOBILE SIDEBAR ===== -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="brand-icon">⚡</span>
+            <span class="brand-name">Swift<span>Mart</span></span>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-body">
+            <div class="sidebar-section">
+                <h4>Categories</h4>
+                <button class="sidebar-filter active" data-category="all">
+                    <i class="fas fa-th"></i> All Products
+                </button>
+                <button class="sidebar-filter" data-category="electronics">
+                    <i class="fas fa-laptop"></i> Electronics
+                </button>
+                <button class="sidebar-filter" data-category="fashion">
+                    <i class="fas fa-tshirt"></i> Fashion
+                </button>
+                <button class="sidebar-filter" data-category="home">
+                    <i class="fas fa-home"></i> Home & Living
+                </button>
+                <button class="sidebar-filter" data-category="beauty">
+                    <i class="fas fa-spa"></i> Beauty
+                </button>
+            </div>
+            <div class="sidebar-section">
+                <h4>Currency</h4>
+                <select id="sidebarCurrency" class="sidebar-currency">
+                    <option value="USD">🇺🇸 USD</option>
+                    <option value="EUR">🇪🇺 EUR</option>
+                    <option value="GBP">🇬🇧 GBP</option>
+                    <option value="NGN">🇳🇬 NGN</option>
+                    <option value="KES">🇰🇪 KES</option>
+                    <option value="ZAR">🇿🇦 ZAR</option>
+                </select>
+            </div>
+            <div class="sidebar-section">
+                <h4>Contact</h4>
+                <a href="https://wa.me/2348012345678" class="sidebar-contact">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== NAVIGATION ===== -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-icon">⚡</span>
-                <span class="brand-name">Swift<span>Mart</span></span>
+            <div class="nav-left">
+                <button class="hamburger" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-brand">
+                    <span class="brand-icon">⚡</span>
+                    <span class="brand-name">Swift<span>Mart</span></span>
+                </div>
             </div>
             <div class="nav-controls">
                 <select id="currencySelector" class="currency-select">
@@ -45,7 +102,6 @@
             <p>Shop from our curated collection of premium items — delivered fast, anywhere in the world.</p>
             <div class="hero-buttons">
                 <a href="#products" class="btn-primary">Explore Now <i class="fas fa-arrow-right"></i></a>
-                <a href="#" class="btn-secondary">Learn More</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
@@ -73,7 +129,7 @@
         </div>
     </section>
 
-    <!-- ===== TRUST BADGES ===== -->
+    <!-- ===== TRUST BAR ===== -->
     <section class="trust-bar">
         <div class="trust-item">
             <i class="fas fa-truck"></i>
@@ -95,8 +151,7 @@
 
     <!-- ===== CATEGORY FILTERS ===== -->
     <div class="filters-container">
-        <h2 class="section-title">Browse <span>Categories</span></h2>
-        <div class="filters">
+        <div class="filters" id="categoryFilters">
             <button class="filter-btn active" data-category="all">
                 <i class="fas fa-th"></i> All
             </button>
@@ -166,7 +221,7 @@
         <div class="newsletter-content">
             <h2>Join the <span>SwiftMart</span> Family</h2>
             <p>Subscribe for exclusive deals and updates</p>
-            <form class="newsletter-form">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! 🎉');">
                 <input type="email" placeholder="Enter your email" required />
                 <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
             </form>
