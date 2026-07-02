@@ -23,7 +23,7 @@ const exchangeRates = {
     USD: 1,
     EUR: 0.92,
     GBP: 0.78,
-    NGN: 1550,
+    NGN: 1300,
     KES: 135,
     ZAR: 18.5
 };
@@ -110,7 +110,7 @@ function renderProducts(category = "all", search = "") {
 
 // ============ WHATSAPP ORDER ============
 function orderProduct(name, price) {
-    const phone = "2348012345678"; // REPLACE with client's number
+    const phone = "2347034957341"; // REPLACE with client's number
     const message = `Hello! I want to order ${name} for ${price}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
 }
